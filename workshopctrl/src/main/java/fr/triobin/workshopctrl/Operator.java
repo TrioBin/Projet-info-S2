@@ -18,4 +18,20 @@ public class Operator {
     public enum OperatorStatus {
         AVAILABLE, BUSY, BREAK
     }
+
+    public void print() {
+        System.out.println("Operator: " + code);
+        System.out.println("Name: " + name);
+        System.out.println("Surname: " + surname);
+        skills.print();
+        System.out.println("Status: " + status);
+    }
+
+    public void modify(RefMachine skills) {
+        this.skills = skills;
+    }
+
+    public void modify(OperatorStatus status) {
+        this.status = status;
+    }
 }
