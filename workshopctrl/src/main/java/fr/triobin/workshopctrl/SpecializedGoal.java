@@ -6,4 +6,9 @@ public class SpecializedGoal extends Goal {
     public SpecializedGoal(Operation operation) {
         this.operation = operation;
     }
+
+    @Override
+    public void print() {
+        System.out.println("SpecializedGoal: " + operation.getName());
+    }
 }
