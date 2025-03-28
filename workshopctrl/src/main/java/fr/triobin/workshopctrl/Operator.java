@@ -34,4 +34,7 @@ public class Operator {
     public void modify(OperatorStatus status) {
         this.status = status;
     }
+    public void remove(){
+        this.status = OperatorStatus.BREAK;
+    }
 }
