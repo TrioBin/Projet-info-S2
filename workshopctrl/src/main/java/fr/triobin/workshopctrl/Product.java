@@ -10,4 +10,17 @@ public class Product {
         this.dProduct = dProduct;
         this.operations = operations;
     }
+
+    public void print() {
+        System.out.println("Product: " + productCode + " Description: " + dProduct);
+        operations.print();
+    }
+    
+    public void modifier(OPList operation) {
+        this.operations = operation;
+    }
+
+    public void remove(){
+        operations.removeOperation(0);
+    }
 }

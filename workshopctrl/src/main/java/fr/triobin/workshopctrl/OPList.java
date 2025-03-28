@@ -1,14 +1,29 @@
 package fr.triobin.workshopctrl;
 
-public class OPList {
-    private Operation[] operations;
+import java.util.ArrayList;
 
-    public OPList(Operation[] operations) {
+public class OPList {
+    private ArrayList<Operation> operations;
+
+    public OPList(ArrayList<Operation> operations) {
         this.operations = operations;
     }
-    public void print(){
+
+    public void print() {
         for (Operation operation : operations) {
             operation.print();
         }
+    }
+
+    public void modifier(ArrayList<Operation> operations) {
+        this.operations = operations;
+    }
+
+    public void addOperation(Operation operation) {
+        operations.add(operation);
+    }
+
+    public void removeOperation(Integer operation) {
+        operations.remove(operation);
     }
 }
