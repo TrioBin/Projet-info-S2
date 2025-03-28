@@ -12,10 +12,16 @@ public class Operation {
         this.machine = machine;
         this.time = time;
     }
+
     public void print() {
         System.out.println("Operation: " + name + " Machine: " + machine + " Time: " + time);
     }
+
     public void modifier(Machine machine) {
         this.machine = machine;
+    }
+
+    public String getName() {
+        return name;
     }
 }

@@ -2,8 +2,13 @@ package fr.triobin.workshopctrl;
 
 import java.util.ArrayList;
 
-public class OPList {
+public class OPList implements Iterable<Operation> {
     private ArrayList<Operation> operations;
+
+    @Override
+    public java.util.Iterator<Operation> iterator() {
+        return operations.iterator();
+    }
 
     public OPList(ArrayList<Operation> operations) {
         this.operations = operations;
