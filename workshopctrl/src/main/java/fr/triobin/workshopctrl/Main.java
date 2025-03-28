@@ -20,7 +20,6 @@ public class Main {
         operations.addOperation(operation3);
 
         Product product = new Product("P1", "Product 1", operations);
-        product.print();
         
         Workshop workshop = new Workshop("Workshop 1");
         
@@ -31,5 +30,9 @@ public class Main {
         
         Workstation workstation = new Workstation("WS1", "Workstation 1", new Position(1, 1), machines);
         workshop.add(workstation);
+
+        workshop.add(product);
+
+        workshop.print();
     }
 }
