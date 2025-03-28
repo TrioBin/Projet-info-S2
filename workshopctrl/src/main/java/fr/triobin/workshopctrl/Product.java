@@ -23,4 +23,12 @@ public class Product {
     public void remove(){
         operations.removeOperation(0);
     }
+
+    public String getName() {
+        return dProduct;
+    }
+
+    public OPList getOperations() {
+        return operations;
+    }
 }
