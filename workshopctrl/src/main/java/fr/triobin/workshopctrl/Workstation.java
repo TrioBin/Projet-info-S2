@@ -1,12 +1,14 @@
 package fr.triobin.workshopctrl;
 
+import java.util.ArrayList;
+
 public class Workstation {
     private String refWorkstation;
     private String dworkstation;
     private Position position;
-    private Machine[] machines;
+    private ArrayList<Machine> machines;
 
-    public Workstation(String refWorkstation, String dworkstation, Position position, Machine[] machines) {
+    public Workstation(String refWorkstation, String dworkstation, Position position, ArrayList<Machine> machines) {
         this.refWorkstation = refWorkstation;
         this.dworkstation = dworkstation;
         this.position = position;
@@ -26,36 +28,20 @@ public class Workstation {
         this.position = position;
     }
 
-    public void modify(Machine[] machines) {
+    public void modify(ArrayList<Machine> machines) {
         this.machines = machines;
     }
 
     public void addMachine(Machine m) {
-        Machine[] newMachines = new Machine[machines.length + 1];
-        for (int i = 0; i < machines.length; i++) {
-            newMachines[i] = machines[i];
-        }
-        newMachines[machines.length] = m;
-        machines = newMachines;
+        machines.add(m);
     }
 
     public void removeMachine(Machine m) {
-        Machine[] newMachines = new Machine[machines.length - 1];
-        int j = 0;
-        for (int i = 0; i < machines.length; i++) {
-            if (machines[i] != m) {
-                newMachines[j] = machines[i];
-                j++;
-            }
-        }
-        machines = newMachines;
+        machines.remove(m);
     }
 
     public void changeMachine(Machine m, Machine newM) {
-        for (int i = 0; i < machines.length; i++) {
-            if (machines[i] == m) {
-                machines[i] = newM;
-            }
-        }
+        int index = machines.indexOf(m);
+        machines.set(index, newM);
     }
 }
