@@ -56,7 +56,7 @@ public class Machine {
         operations.remove(o);
     }
 
-    public void modifyOperation(Operation o, Operation newO) {
+    public void changeOperation(Operation o, Operation newO) {
         int index = operations.indexOf(o);
         operations.set(index, newO);
     }
