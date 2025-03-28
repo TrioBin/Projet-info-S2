@@ -9,6 +9,6 @@ public class SpecializedGoal extends Goal {
 
     @Override
     public void print() {
-        System.out.println("SpecializedGoal: " + operation.getName());
+        System.out.println("- SpecializedGoal: " + operation.getName());
     }
 }

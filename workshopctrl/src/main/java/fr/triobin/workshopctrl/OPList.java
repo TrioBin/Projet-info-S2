@@ -15,6 +15,7 @@ public class OPList implements Iterable<Operation> {
     }
 
     public void print() {
+        System.out.println("- OPList:");
         for (Operation operation : operations) {
             operation.print();
         }

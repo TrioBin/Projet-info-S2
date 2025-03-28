@@ -12,7 +12,7 @@ public class Product {
     }
 
     public void print() {
-        System.out.println("Product: " + productCode + " Description: " + dProduct);
+        System.out.println("- Product: " + productCode + " Description: " + dProduct);
         operations.print();
     }
     

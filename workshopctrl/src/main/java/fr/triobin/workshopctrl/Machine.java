@@ -28,7 +28,7 @@ public class Machine {
     public void print() {
         System.out.println("- Machine: " + dmachine);
         System.out.println("RefMachine: " + refMachine.getName());
-        System.out.println("Position: " + position.getX() + " " + position.getY());
+        System.out.println("Position: " + position.x + " " + position.y);
         System.out.println("Cost: " + c.getCost());
         System.out.println("Status: " + status);
         System.out.println("Operations: ");

@@ -12,4 +12,8 @@ public class Cost {
     public float calcCost(Time t) {
         return cost * t.getTime();
     }
+
+    public float getCost() {
+        return cost;
+    }
 }

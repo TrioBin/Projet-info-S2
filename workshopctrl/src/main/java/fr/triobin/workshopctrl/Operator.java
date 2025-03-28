@@ -20,7 +20,7 @@ public class Operator {
     }
 
     public void print() {
-        System.out.println("Operator: " + code);
+        System.out.println("- Operator: " + code);
         System.out.println("Name: " + name);
         System.out.println("Surname: " + surname);
         skills.print();

@@ -16,7 +16,7 @@ public class Workstation {
     }
 
     public void print() {
-        System.out.println("Workstation: " + dworkstation);
+        System.out.println("- Workstation: " + dworkstation);
         position.print();
         System.out.println("Machines: ");
         for (Machine m : machines) {

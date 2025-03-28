@@ -8,7 +8,7 @@ public class RefMachine {
     }
 
     public void print() {
-        System.out.println("RefMachine: " + code);
+        System.out.println("- RefMachine: " + code);
     }
 
     public String getName() {
