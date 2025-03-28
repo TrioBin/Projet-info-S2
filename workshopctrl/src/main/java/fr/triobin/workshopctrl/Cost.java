@@ -8,4 +8,8 @@ public class Cost {
     public Cost(float cost) {
         this.cost = cost;
     }
+
+    public float calcCost(Time t) {
+        return cost * t.getTime();
+    }
 }
