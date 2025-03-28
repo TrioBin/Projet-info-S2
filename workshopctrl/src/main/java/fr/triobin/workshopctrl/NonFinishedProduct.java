@@ -1,11 +1,11 @@
 package fr.triobin.workshopctrl;
 
-public class NotFinishedProductStorage {
+public class NonFinishedProduct {
     private Product product;
     private Integer id;
     private ProductStatus status;
 
-    public NotFinishedProductStorage(Product product, Integer id) {
+    public NonFinishedProduct(Product product, Integer id) {
         this.product = product;
         this.id = id;
         this.status = ProductStatus.FREE;
