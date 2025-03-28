@@ -34,7 +34,7 @@ public class Workshop {
     }
 
     public void print() {
-        System.out.println("Workshop: " + designation);
+        System.out.println("- Workshop: " + designation);
         System.out.println("Workstations: ");
         for (Workstation w : workstations) {
             w.print();

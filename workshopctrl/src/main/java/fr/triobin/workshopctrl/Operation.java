@@ -14,7 +14,9 @@ public class Operation {
     }
 
     public void print() {
-        System.out.println("Operation: " + name + " Machine: " + machine + " Time: " + time);
+        System.out.println("- Operation: " + name);
+        System.out.println("Machine: " + machine.getName());
+        System.out.println("Time: " + time);
     }
 
     public void modifier(Machine machine) {

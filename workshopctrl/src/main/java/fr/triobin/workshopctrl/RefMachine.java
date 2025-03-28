@@ -10,4 +10,8 @@ public class RefMachine {
     public void print() {
         System.out.println("RefMachine: " + code);
     }
+
+    public String getName() {
+        return code;
+    }
 }

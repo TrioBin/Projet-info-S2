@@ -26,9 +26,10 @@ public class Machine {
     }
 
     public void print() {
-        System.out.println("Machine: " + dmachine);
-        position.print();
-        System.out.println("Cost: " + c);
+        System.out.println("- Machine: " + dmachine);
+        System.out.println("RefMachine: " + refMachine.getName());
+        System.out.println("Position: " + position.getX() + " " + position.getY());
+        System.out.println("Cost: " + c.getCost());
         System.out.println("Status: " + status);
         System.out.println("Operations: ");
         for (Operation o : operations) {
@@ -59,5 +60,9 @@ public class Machine {
     public void changeOperation(Operation o, Operation newO) {
         int index = operations.indexOf(o);
         operations.set(index, newO);
+    }
+
+    public String getName() {
+        return dmachine;
     }
 }

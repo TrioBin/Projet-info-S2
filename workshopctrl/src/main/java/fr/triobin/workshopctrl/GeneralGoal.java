@@ -13,7 +13,7 @@ public class GeneralGoal extends Goal {
 
     @Override
     public void print() {
-        System.out.println("GeneralGoal: " + product.getName() + " " + quantity);
+        System.out.println("- GeneralGoal: " + product.getName() + " " + quantity);
     }
 
     public ArrayList<SpecializedGoal> getSpecializedGoals() {
