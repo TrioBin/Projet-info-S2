@@ -6,4 +6,8 @@ public class RefMachine {
     public RefMachine(String code) {
         this.code = code;
     }
+
+    public void print() {
+        System.out.println("RefMachine: " + code);
+    }
 }
