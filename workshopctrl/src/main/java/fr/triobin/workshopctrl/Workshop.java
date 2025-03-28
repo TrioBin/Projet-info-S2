@@ -9,12 +9,15 @@ public class Workshop {
     private ArrayList<Operator> operators;
     private ArrayList<Goal> goals;
 
+    private ArrayList<SpecializedGoal> actualGoals;
+
     public Workshop(String designation) {
         this.designation = designation;
         this.workstations = new ArrayList<>();
         this.products = new ArrayList<>();
         this.operators = new ArrayList<>();
         this.goals = new ArrayList<>();
+        this.actualGoals = new ArrayList<>();
     }
 
     public void add(Workstation workstation) {
@@ -52,7 +55,7 @@ public class Workshop {
             g.print();
         }
     }
-    
+
     public void replaceToSpecializedGoalsFrom(GeneralGoal generalGoal) {
         ArrayList<SpecializedGoal> specializedGoals = generalGoal.getSpecializedGoals();
         int index = goals.indexOf(generalGoal);
@@ -62,17 +65,36 @@ public class Workshop {
     }
 
     public SpecializedGoal getNextGoal() {
-        if (goals.size() > 0) {
-            Goal g = goals.get(0);
-            if (g instanceof GeneralGoal) {
-                GeneralGoal gg = (GeneralGoal) g;
-                replaceToSpecializedGoalsFrom(gg);
-                return getNextGoal();
-            } else if (g instanceof SpecializedGoal) {
-                goals.remove(g);
-                return (SpecializedGoal) g;
+        return getNextGoal(0);
+    }
+
+    public SpecializedGoal getNextGoal(int i) {
+        if (goals.size() > i + 1) {
+            Goal goal = goals.get(i);
+            if (goal instanceof SpecializedGoal) {
+                SpecializedGoal specializedGoal = (SpecializedGoal) goal;
+                if (specializedGoal.getProduct().getStatus() == NonFinishedProduct.ProductStatus.FREE) {
+                    goals.remove(i);
+                    specializedGoal.getProduct().setStatus(NonFinishedProduct.ProductStatus.USED);
+                    actualGoals.add(specializedGoal);
+                    return (SpecializedGoal) goal;
+                } else {
+                    return getNextGoal(i + 1);
+                }
+            } else if (goal instanceof GeneralGoal) {
+                replaceToSpecializedGoalsFrom((GeneralGoal) goal);
+                return getNextGoal(i);
             }
         }
         return null;
+    }
+
+    public ArrayList<SpecializedGoal> getActualGoals() {
+        return actualGoals;
+    }
+
+    public void removeActualGoal(SpecializedGoal goal) {
+        actualGoals.remove(goal);
+        goal.getProduct().setStatus(NonFinishedProduct.ProductStatus.FREE);
     }
 }

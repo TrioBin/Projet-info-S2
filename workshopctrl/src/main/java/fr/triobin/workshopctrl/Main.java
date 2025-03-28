@@ -40,13 +40,24 @@ public class Main {
 
         workshop.print();
 
-        workshop.getNextGoal().print();
-        workshop.getNextGoal().print();
-        workshop.getNextGoal().print();
-        workshop.getNextGoal().print();
-        workshop.getNextGoal().print();
-        workshop.getNextGoal().print();
+        SpecializedGoal obj1 = workshop.getNextGoal();
+        obj1.print();
+        SpecializedGoal obj2 = workshop.getNextGoal();
+        obj2.print();
+        SpecializedGoal obj3 = workshop.getNextGoal();
+        obj3.print();
 
-        workshop.print();
+        workshop.removeActualGoal(obj1);
+        workshop.removeActualGoal(obj2);
+        workshop.removeActualGoal(obj3);
+
+        SpecializedGoal obj4 = workshop.getNextGoal();
+        obj4.print();
+        SpecializedGoal obj5 = workshop.getNextGoal();
+        obj5.print();
+        SpecializedGoal obj6 = workshop.getNextGoal();
+        obj6.print();
+        SpecializedGoal obj7 = workshop.getNextGoal();
+        obj7.print();
     }
 }

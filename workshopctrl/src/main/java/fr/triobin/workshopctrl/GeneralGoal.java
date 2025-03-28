@@ -19,8 +19,9 @@ public class GeneralGoal extends Goal {
     public ArrayList<SpecializedGoal> getSpecializedGoals() {
         ArrayList<SpecializedGoal> goals = new ArrayList<>();
         for (int i = 0; i < quantity; i++) {
+            NonFinishedProduct tempProduct = new NonFinishedProduct(product);
             for (Operation operation : product.getOperations()) {
-                goals.add(new SpecializedGoal(operation));
+                goals.add(new SpecializedGoal(operation, tempProduct));
             }
         }
         return goals;
