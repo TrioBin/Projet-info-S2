@@ -6,6 +6,9 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
@@ -22,13 +25,12 @@ import fr.triobin.workshopctrl.Workshop;
 
 public class MainFrame {
 
-    public static void run(String workshopName) {
-        Workshop workshop = new Workshop(workshopName);
+    public static void run(Workshop workshop) {
         // create a JFrame to hold everything
         JFrame f = new JFrame("TabbedPaneFrame");
         f.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent we) {
-                SelectFrame.run();
+                SelectFrame.run(new ArrayList<Workshop>());
             }
         });
         f.setSize(800, 500);

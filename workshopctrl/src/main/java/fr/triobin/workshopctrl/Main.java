@@ -9,7 +9,7 @@ import fr.triobin.workshopctrl.GUI.MainFrame;
 import fr.triobin.workshopctrl.GUI.SelectFrame;
 
 public class Main {
-        Workshop[] workshops;
+        static ArrayList<Workshop> workshops = new ArrayList<Workshop>();
         public static void main(String[] args) {
                 SelectFrame.run(workshops);
         }

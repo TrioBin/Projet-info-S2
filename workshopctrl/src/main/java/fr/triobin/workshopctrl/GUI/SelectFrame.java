@@ -17,10 +17,13 @@ import java.awt.event.WindowEvent;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SelectFrame {
-    public static void run(Workshop[] workshops) {
+    public static void run(ArrayList<Workshop> workshops) {
         final GsonBuilder builder = new GsonBuilder();
         final Gson gson = builder.create();
 
@@ -39,6 +42,7 @@ public class SelectFrame {
             if (myObj.createNewFile()) {
                 System.out.println("File created: " + myObj.getName());
                 try {
+                    workshops.add(new Workshop("Workshop 1"));
                     FileWriter myWriter = new FileWriter("./filename.json");
                     myWriter.write(gson.toJson(workshops));
                     myWriter.close();
@@ -49,6 +53,8 @@ public class SelectFrame {
                 }
             } else {
                 System.out.println("File already exists.");
+                workshops = new ArrayList<Workshop>(
+                        List.of(gson.fromJson(new FileReader("./filename.json"), Workshop[].class)));
             }
         } catch (IOException e) {
             System.out.println("An error occurred.");
@@ -68,7 +74,7 @@ public class SelectFrame {
             workshopButton.addActionListener(e -> {
                 // Open the selected workshop
                 System.out.println("Opening " + workshopName);
-                MainFrame.run(workshopName);
+                MainFrame.run(workshop);
                 f.dispose(); // Close the select frame
             });
             workshopPanel.add(workshopButton, BorderLayout.CENTER);
