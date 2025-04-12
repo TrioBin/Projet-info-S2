@@ -31,4 +31,8 @@ public class Product {
     public OPList getOperations() {
         return operations;
     }
+
+    public String getId() {
+        return productCode;
+    }
 }

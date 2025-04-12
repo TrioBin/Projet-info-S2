@@ -3,61 +3,54 @@ package fr.triobin.workshopctrl;
 import java.lang.reflect.Array;
 import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Scanner;
+
+import fr.triobin.workshopctrl.GUI.MainFrame;
+import fr.triobin.workshopctrl.GUI.SelectFrame;
 
 public class Main {
-    public static void main(String[] args) {
-        Machine machine1 = new Machine(new RefMachine("M1"), "Machine 1", new Position(1, 1), new Cost(1),
-                new ArrayList<Operation>(), Machine.MachineStatus.AVAILABLE);
-        Machine machine2 = new Machine(new RefMachine("M2"), "Machine 2", new Position(2, 2), new Cost(2),
-                new ArrayList<Operation>(), Machine.MachineStatus.AVAILABLE);
-        Machine machine3 = new Machine(new RefMachine("M3"), "Machine 3", new Position(3, 3), new Cost(3),
-                new ArrayList<Operation>(), Machine.MachineStatus.AVAILABLE);
+        public static void main(String[] args) {
+                SelectFrame.run();
+        }
 
-        Operation operation1 = new Operation("OP1", machine1, new Time(1, 0, 0));
-        Operation operation2 = new Operation("OP2", machine2, new Time(0, 1, 0));
-        Operation operation3 = new Operation("OP3", machine3, new Time(0, 0, 1));
+        public static void fillWorkshop(Workshop workshop) {
+                // Create workstations
+                Workstation workstation1 = new Workstation("Workstation 1", "W1", new Position(0, 0),
+                                new ArrayList<>());
+                Workstation workstation2 = new Workstation("Workstation 2", "W2", new Position(1, 0),
+                                new ArrayList<>());
+                Workstation workstation3 = new Workstation("Workstation 3", "W3", new Position(2, 0),
+                                new ArrayList<>());
 
-        OPList operations = new OPList(new ArrayList<Operation>());
-        operations.addOperation(operation1);
-        operations.addOperation(operation2);
-        operations.addOperation(operation3);
+                // Create products
+                Product product1 = new Product("Product 1", "P1", new OPList(new ArrayList<>()));
+                Product product2 = new Product("Product 2", "P2", new OPList(new ArrayList<>()));
+                Product product3 = new Product("Product 3", "P3", new OPList(new ArrayList<>()));
 
-        Product product = new Product("P1", "Product 1", operations);
+                // Create operators
+                Operator operator1 = new Operator("Operator 1", "Name1", "Surname1", new ArrayList<>(),
+                                Operator.OperatorStatus.AVAILABLE);
+                Operator operator2 = new Operator("Operator 2", "Name2", "Surname2", new ArrayList<>(),
+                                Operator.OperatorStatus.AVAILABLE);
+                Operator operator3 = new Operator("Operator 3", "Name3", "Surname3", new ArrayList<>(),
+                                Operator.OperatorStatus.AVAILABLE);
 
-        Workshop workshop = new Workshop("Workshop 1");
+                // Create goals
+                Goal goal1 = new GeneralGoal(product1, 10);
 
-        ArrayList<Machine> machines = new ArrayList<Machine>();
-        machines.add(machine1);
-        machines.add(machine2);
-        machines.add(machine3);
+                // Add workstations, products, operators and goals to the workshop
+                workshop.add(workstation1);
+                workshop.add(workstation2);
+                workshop.add(workstation3);
 
-        Workstation workstation = new Workstation("WS1", "Workstation 1", new Position(1, 1), machines);
-        workshop.add(workstation);
+                workshop.add(product1);
+                workshop.add(product2);
+                workshop.add(product3);
 
-        workshop.add(product);
+                workshop.add(operator1);
+                workshop.add(operator2);
+                workshop.add(operator3);
 
-        workshop.add(new GeneralGoal(product, 10));
-
-        workshop.print();
-
-        SpecializedGoal obj1 = workshop.getNextGoal();
-        obj1.print();
-        SpecializedGoal obj2 = workshop.getNextGoal();
-        obj2.print();
-        SpecializedGoal obj3 = workshop.getNextGoal();
-        obj3.print();
-
-        workshop.removeActualGoal(obj1);
-        workshop.removeActualGoal(obj2);
-        workshop.removeActualGoal(obj3);
-
-        SpecializedGoal obj4 = workshop.getNextGoal();
-        obj4.print();
-        SpecializedGoal obj5 = workshop.getNextGoal();
-        obj5.print();
-        SpecializedGoal obj6 = workshop.getNextGoal();
-        obj6.print();
-        SpecializedGoal obj7 = workshop.getNextGoal();
-        obj7.print();
-    }
+                workshop.add(goal1);
+        }
 }

@@ -59,7 +59,6 @@ public class Workshop {
     public void replaceToSpecializedGoalsFrom(GeneralGoal generalGoal) {
         ArrayList<SpecializedGoal> specializedGoals = generalGoal.getSpecializedGoals();
         int index = goals.indexOf(generalGoal);
-        System.out.println(index);
         goals.remove(generalGoal);
         goals.addAll(index, specializedGoals);
     }
@@ -69,7 +68,7 @@ public class Workshop {
     }
 
     public SpecializedGoal getNextGoal(int i) {
-        if (goals.size() > i + 1) {
+        if (goals.size() > i) {
             Goal goal = goals.get(i);
             if (goal instanceof SpecializedGoal) {
                 SpecializedGoal specializedGoal = (SpecializedGoal) goal;
@@ -96,5 +95,25 @@ public class Workshop {
     public void removeActualGoal(SpecializedGoal goal) {
         actualGoals.remove(goal);
         goal.getProduct().setStatus(NonFinishedProduct.ProductStatus.FREE);
+    }
+
+    public String getDesignation() {
+        return designation;
+    }
+
+    public ArrayList<Workstation> getWorkstations() {
+        return workstations;
+    }
+
+    public ArrayList<Product> getProducts() {
+        return products;
+    }
+
+    public ArrayList<Operator> getOperators() {
+        return operators;
+    }
+
+    public ArrayList<Goal> getGoals() {
+        return goals;
     }
 }
