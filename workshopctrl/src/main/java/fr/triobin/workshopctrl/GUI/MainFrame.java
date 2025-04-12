@@ -22,13 +22,13 @@ import fr.triobin.workshopctrl.Workshop;
 
 public class MainFrame {
 
-    public static void run() {
-        Workshop workshop = new Workshop("Atelier 1");
+    public static void run(String workshopName) {
+        Workshop workshop = new Workshop(workshopName);
         // create a JFrame to hold everything
         JFrame f = new JFrame("TabbedPaneFrame");
         f.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent we) {
-                System.exit(0);
+                SelectFrame.run();
             }
         });
         f.setSize(800, 500);
