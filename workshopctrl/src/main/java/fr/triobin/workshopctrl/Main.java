@@ -9,8 +9,9 @@ import fr.triobin.workshopctrl.GUI.MainFrame;
 import fr.triobin.workshopctrl.GUI.SelectFrame;
 
 public class Main {
+        Workshop[] workshops;
         public static void main(String[] args) {
-                SelectFrame.run();
+                SelectFrame.run(workshops);
         }
 
         public static void fillWorkshop(Workshop workshop) {
