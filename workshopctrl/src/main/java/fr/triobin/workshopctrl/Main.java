@@ -1,17 +1,53 @@
 package fr.triobin.workshopctrl;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.sql.Time;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import fr.triobin.workshopctrl.GUI.MainFrame;
 import fr.triobin.workshopctrl.GUI.SelectFrame;
 
 public class Main {
-        static ArrayList<Workshop> workshops = new ArrayList<Workshop>();
+        public static ArrayList<Workshop> workshops = new ArrayList<Workshop>();
+        public static Workshop workshop;
+
         public static void main(String[] args) {
-                SelectFrame.run(workshops);
+                final GsonBuilder builder = new GsonBuilder();
+                final Gson gson = builder.create();
+                try {
+                        File myObj = new File("./filename.json");
+                        if (myObj.createNewFile()) {
+                                System.out.println("File created: " + myObj.getName());
+                                try {
+                                        workshops.add(new Workshop("Workshop 1"));
+                                        FileWriter myWriter = new FileWriter("./filename.json");
+                                        myWriter.write(gson.toJson(workshops));
+                                        myWriter.close();
+                                        System.out.println("Successfully wrote to the file.");
+                                } catch (IOException e) {
+                                        System.out.println("An error occurred.");
+                                        e.printStackTrace();
+                                }
+                        } else {
+                                System.out.println("File already exists.");
+                                workshops = new ArrayList<Workshop>(
+                                                List.of(gson.fromJson(new FileReader("./filename.json"),
+                                                                Workshop[].class)));
+                        }
+                } catch (IOException e) {
+                        System.out.println("An error occurred.");
+                        e.printStackTrace();
+                }
+                SelectFrame.run();
         }
 
         public static void fillWorkshop(Workshop workshop) {

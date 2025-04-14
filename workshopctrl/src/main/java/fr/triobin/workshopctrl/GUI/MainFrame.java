@@ -21,16 +21,18 @@ import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingUtilities;
 
+import fr.triobin.workshopctrl.Main;
 import fr.triobin.workshopctrl.Workshop;
 
 public class MainFrame {
 
     public static void run(Workshop workshop) {
+        Main.workshop = workshop;
         // create a JFrame to hold everything
         JFrame f = new JFrame("TabbedPaneFrame");
         f.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent we) {
-                SelectFrame.run(new ArrayList<Workshop>());
+                SelectFrame.run();
             }
         });
         f.setSize(800, 500);
@@ -38,7 +40,7 @@ public class MainFrame {
 
         JTabbedPane tabby = new JTabbedPane();
 
-        JPanel workshopPanel = WorkshopPanel.generate(workshop);
+        JPanel workshopPanel = WorkshopPanel.generate();
 
         JPanel workstationPanel = new JPanel();
 

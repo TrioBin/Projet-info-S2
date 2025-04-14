@@ -3,14 +3,13 @@ package fr.triobin.workshopctrl.GUI;
 import java.awt.BorderLayout;
 
 import javax.swing.BorderFactory;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import fr.triobin.workshopctrl.Main;
 import fr.triobin.workshopctrl.Workshop;
 
-public class WorkshopPanel {
+public class WorkstationPanel {
     public static JPanel generate() {
         JPanel workshopPanel = new JPanel();
         workshopPanel.setLayout(new BorderLayout());
