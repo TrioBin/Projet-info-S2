@@ -42,7 +42,7 @@ public class MainFrame {
 
         JPanel workshopPanel = WorkshopPanel.generate();
 
-        JPanel workstationPanel = new JPanel();
+        JPanel workstationPanel = WorkstationPanel.generate();
 
         JPanel productPanel = new JPanel();
 

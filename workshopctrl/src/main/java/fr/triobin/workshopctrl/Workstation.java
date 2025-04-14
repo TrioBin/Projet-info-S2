@@ -44,4 +44,8 @@ public class Workstation {
         int index = machines.indexOf(m);
         machines.set(index, newM);
     }
+
+    public String getRefWorkstation() {
+        return refWorkstation;
+    }
 }
