@@ -1,7 +1,17 @@
 [
     {
         "designation": "Workshop 1",
-        "workstations": [],
+        "workstations": [
+            {
+                "refWorkstation": "test2",
+                "dworkstation": "test",
+                "position": {
+                    "x": 1,
+                    "y": 0
+                },
+                "machines": []
+            }
+        ],
         "products": [],
         "operators": [],
         "goals": [],
@@ -17,6 +27,14 @@
     },
     {
         "designation": "Workshop3",
+        "workstations": [],
+        "products": [],
+        "operators": [],
+        "goals": [],
+        "actualGoals": []
+    },
+    {
+        "designation": "hcfgfcjhgvjh",
         "workstations": [],
         "products": [],
         "operators": [],

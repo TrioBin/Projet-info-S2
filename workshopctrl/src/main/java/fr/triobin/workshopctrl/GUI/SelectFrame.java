@@ -10,6 +10,7 @@ import fr.triobin.workshopctrl.Main;
 import fr.triobin.workshopctrl.Workshop;
 
 import java.awt.BorderLayout;
+import java.awt.Event;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 

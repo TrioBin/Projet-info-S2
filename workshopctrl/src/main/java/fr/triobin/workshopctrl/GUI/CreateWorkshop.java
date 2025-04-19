@@ -20,6 +20,7 @@ import com.google.gson.GsonBuilder;
 
 import fr.triobin.workshopctrl.Main;
 import fr.triobin.workshopctrl.Workshop;
+import fr.triobin.workshopctrl.Functions.FileSystem;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -32,9 +33,6 @@ import java.awt.event.WindowEvent;
 
 public class CreateWorkshop {
     public static void run() {
-        final GsonBuilder builder = new GsonBuilder();
-        final Gson gson = builder.create();
-
         JFrame f = new JFrame("Create Workshop");
         f.setSize(800, 500);
         f.setLocation(200, 200);
@@ -70,15 +68,7 @@ public class CreateWorkshop {
             Workshop newWorkshop = new Workshop(workshopName);
             Main.workshops.add(newWorkshop);
             // Save the new workshop to the file
-            try {
-                FileWriter myWriter = new FileWriter("./filename.json");
-                myWriter.write(gson.toJson(Main.workshops));
-                myWriter.close();
-                System.out.println("Successfully wrote to the file.");
-            } catch (IOException ex) {
-                System.out.println("An error occurred.");
-                ex.printStackTrace();
-            }
+            FileSystem.save();
             // Open the new workshop
             MainFrame.run(newWorkshop);
             f.dispose(); // Close the create workshop frame
