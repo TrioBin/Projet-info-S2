@@ -1,1 +1,26 @@
-[{"designation":"Workshop 1","workstations":[],"products":[],"operators":[],"goals":[],"actualGoals":[]},{"designation":"Workshop 2","workstations":[],"products":[],"operators":[],"goals":[],"actualGoals":[]}]
+[
+    {
+        "designation": "Workshop 1",
+        "workstations": [],
+        "products": [],
+        "operators": [],
+        "goals": [],
+        "actualGoals": []
+    },
+    {
+        "designation": "Workshop 2",
+        "workstations": [],
+        "products": [],
+        "operators": [],
+        "goals": [],
+        "actualGoals": []
+    },
+    {
+        "designation": "Workshop3",
+        "workstations": [],
+        "products": [],
+        "operators": [],
+        "goals": [],
+        "actualGoals": []
+    }
+]

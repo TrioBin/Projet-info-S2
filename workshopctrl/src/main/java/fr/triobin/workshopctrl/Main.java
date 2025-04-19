@@ -4,16 +4,12 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import fr.triobin.workshopctrl.GUI.MainFrame;
 import fr.triobin.workshopctrl.GUI.SelectFrame;
 
 public class Main {

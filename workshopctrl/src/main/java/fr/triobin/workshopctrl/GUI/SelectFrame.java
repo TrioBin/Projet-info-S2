@@ -6,22 +6,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
 import fr.triobin.workshopctrl.Main;
 import fr.triobin.workshopctrl.Workshop;
 
 import java.awt.BorderLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-
-import java.io.File;
-import java.io.FileWriter;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class SelectFrame {
     public static void run() {

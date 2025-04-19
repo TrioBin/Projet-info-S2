@@ -1,12 +1,8 @@
 package fr.triobin.workshopctrl.GUI;
 
 import java.awt.BorderLayout;
-import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -14,28 +10,22 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import fr.triobin.workshopctrl.Main;
 import fr.triobin.workshopctrl.Workshop;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.layout.VBox;
-
-import javax.swing.JTextArea;
-
+import javafx.stage.WindowEvent;
 import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
-public class CreateWorkshop {
+public class CreateWorkstation {
     public static void run() {
         final GsonBuilder builder = new GsonBuilder();
         final Gson gson = builder.create();
 
-        JFrame f = new JFrame("Create Workshop");
+        JFrame f = new JFrame("Select Workshop");
         f.setSize(800, 500);
         f.setLocation(200, 200);
 

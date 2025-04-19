@@ -1,25 +1,11 @@
 package fr.triobin.workshopctrl.GUI;
 
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.Image;
-import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.ImageIcon;
-import javax.swing.JComponent;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
-import javax.swing.SwingUtilities;
 
 import fr.triobin.workshopctrl.Main;
 import fr.triobin.workshopctrl.Workshop;

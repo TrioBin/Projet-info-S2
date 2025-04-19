@@ -13,6 +13,7 @@ import fr.triobin.workshopctrl.Workstation;
 
 import javax.swing.JComboBox;
 import javax.swing.Box;
+import javax.swing.JButton;
 
 public class WorkstationPanel {
     public static JPanel generate() {
@@ -26,7 +27,17 @@ public class WorkstationPanel {
             workstationSelector.addItem(workstation.getRefWorkstation());
         }
 
-        workshopPanel.add(workstationSelector);
+        // Add a Create button to create a new workstation that open the workstation creation frame
+        JButton createWorkstationButton = new JButton("Create a new workstation");
+        createWorkstationButton.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        createWorkstationButton.addActionListener(e -> {
+            // Open the selected workstation creation frame
+            System.out.println("Creating a new workstation");
+            CreateWorkstation.run();
+        });
+        
+        workshopPanel.add(createWorkstationButton, BorderLayout.SOUTH);
+        workshopPanel.add(workstationSelector, BorderLayout.NORTH);
         
         return workshopPanel;
     }
